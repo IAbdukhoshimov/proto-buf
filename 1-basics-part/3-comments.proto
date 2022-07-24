@@ -1,0 +1,22 @@
+// The syntax for this file is proto3
+syntax = "proto3";
+
+/* Person is used to identify users 
+* acros our system */
+message Person{
+    //the age of the person's creation
+    int32 age =1 ;
+    //the first name as documented in the sign up form
+    string first_name =2;
+    //the last name as documented in the sign up form
+    string last_name =3;
+    //small picture represents a small .jgp file
+    bytes small_picture =4;
+    bool profile_verify =5;
+    //height of the person in sm
+    float height =6;
+
+    //list of the user's phone number is optional provide at the sign up form
+    repeated string phone_number =7;
+
+}
