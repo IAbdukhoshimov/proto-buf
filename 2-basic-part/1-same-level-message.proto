@@ -1,0 +1,49 @@
+// The syntax for this file is proto3
+syntax = "proto3";
+
+/* Person is used to identify users 
+* acros our system */
+message Person{
+    //the age of the person's creation
+    int32 age = 1 ;
+    //the first name as documented in the sign up form
+    string first_name = 2;
+    //the last name as documented in the sign up form
+    string last_name = 3;
+    //small picture represents a small .jgp file
+    bytes small_picture = 4;
+    bool profile_verify = 5;
+    //height of the person in sm
+    float height = 6;
+
+    //list of the user's phone number is optional provide at the sign up form
+    repeated string phone_number = 7;
+
+    // we now consider only 3 colours
+    enum EyeColour{
+        UNKOWN_EYE_COLOUR = 0;
+        EYE_GREEN = 1;
+        EYE_BROWN = 2;
+        EYE_BLUE = 3;
+    }
+
+    //it is enum defined
+    EyeColour eye_colour = 8;
+
+    //Person's Birthday
+    Date birthday = 9;
+
+} 
+
+message  Date {
+    //Year of the date. Must be from 1 to 1999, or 0 if specifying a date without a year
+    // a year
+    int32 year = 1;
+
+    //Month of year. Must be from 1 to 12 // but it is impossible we can do it in pm lanauge
+    int32 month = 2;
+
+    //Day of the Month
+    int32 day = 3;
+
+}
