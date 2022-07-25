@@ -1,0 +1,50 @@
+// The syntax for this file is proto3
+syntax = "proto3";
+
+import "2-basic-part/4-date-with-package.proto";
+
+/* Person is used to identify users 
+* acros our system */
+message Person{
+    //the age of the person's creation
+    int32 age = 1 ;
+    //the first name as documented in the sign up form
+    string first_name = 2;
+    //the last name as documented in the sign up form
+    string last_name = 3;
+    //small picture represents a small .jgp file
+    bytes small_picture = 4;
+    bool profile_verify = 5;
+    //height of the person in sm
+    float height = 6;
+
+    //list of the user's phone number is optional provide at the sign up form
+    repeated string phone_number = 7;
+
+    // we now consider only 3 colours
+    enum EyeColour{
+        UNKOWN_EYE_COLOUR = 0;
+        EYE_GREEN = 1;
+        EYE_BROWN = 2;
+        EYE_BLUE = 3;
+    }
+
+    //it is enum defined
+    EyeColour eye_colour = 8;
+
+    //Person's Birthday
+    my.date.Date birthday = 9;
+
+    // we defined addres of the Person (full name is Person.Address)
+    message Address{
+        string address_line1 = 1;
+        string address_line2 = 2;
+        string zip_code = 3;
+        string city = 4;
+        string country = 5;
+    }
+
+    repeated Address addresses = 10;
+
+} 
+
